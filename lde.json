@@ -1,0 +1,10 @@
+{
+	"name": "env",
+	"version": "0.1.0",
+	"dependencies": {
+		"path": { "git": "https://github.com/lde-org/path" }
+	},
+	"devDependencies": {
+		"lde-test": { "git": "https://github.com/lde-org/lde" }
+	}
+}
