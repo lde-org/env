@@ -1,10 +1,9 @@
 {
 	"name": "env",
+	"description": "A cross platform env library for lde",
+	"authors": ["David Cruz <david@bycruz.dev"],
 	"version": "0.1.0",
 	"dependencies": {
-		"path": { "git": "https://github.com/lde-org/path" }
-	},
-	"devDependencies": {
-		"lde-test": { "git": "https://github.com/lde-org/lde" }
+		"path": { "version": "0.1.0" }
 	}
 }
