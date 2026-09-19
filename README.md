@@ -7,5 +7,5 @@ It allows you to do things like get and set environment variables, get the curre
 ## Usage
 
 ```
-lde add env --git https://github.com/lde-org/env
+lde add env
 ```

@@ -15,6 +15,8 @@ elseif jit.os == "Linux" then
 	rawenv = require("env.raw.linux")
 elseif jit.os == "OSX" then
 	rawenv = require("env.raw.macos")
+elseif jit.os == "BSD" then
+	rawenv = require("env.raw.bsd")
 else
 	error("Unsupported OS: " .. jit.os)
 end
