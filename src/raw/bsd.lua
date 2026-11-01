@@ -12,7 +12,6 @@ ffi.cdef([[
 local BUF_SIZE = 4096
 
 --- Returns the kernel name, such as "FreeBSD" or "OpenBSD", or nil if uname(3) fails.
----@return string?
 local function sysname()
 	local buf = ffi.new("char[?]", BUF_SIZE)
 	if ffi.C.uname(buf) ~= 0 then
@@ -25,7 +24,6 @@ end
 --- Reads a procfs link to the executable. readlink(2) does not terminate its
 --- result, so the length it returns bounds the string.
 ---@param link string
----@return string?
 local function readlink(link)
 	local buf = ffi.new("char[?]", BUF_SIZE)
 	local len = ffi.C.readlink(link, buf, BUF_SIZE)
@@ -42,7 +40,6 @@ local PROCFS_LINKS = {
 	"/proc/self/exe", -- GNU/kFreeBSD, a BSD userland over a Linux kernel
 }
 
----@return string?
 local function procfsExecPath()
 	for _, link in ipairs(PROCFS_LINKS) do
 		local path = readlink(link)
@@ -55,7 +52,6 @@ local function procfsExecPath()
 end
 
 ---@param mib integer[]
----@return fun(): string?
 local function sysctlExecPath(mib)
 	local name = ffi.new("int[4]", mib)
 

@@ -8,7 +8,12 @@ ffi.cdef([[
 	int chdir(const char* path);
 ]])
 
----@class env.raw.posix
+---@class env.raw.posix: env.raw
+---@field var fun(name: string): string?
+---@field set fun(name: string, value: string?): boolean
+---@field tmpdir fun(): string
+---@field cwd fun(): string?
+---@field chdir fun(dir: string): boolean
 local env = {}
 
 ---@param name string
@@ -45,6 +50,7 @@ function env.cwd()
 	return ffi.string(buf)
 end
 
+---@param dir string
 function env.chdir(dir) ---@return boolean
 	return ffi.C.chdir(dir) == 0
 end

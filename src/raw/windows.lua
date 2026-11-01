@@ -18,7 +18,13 @@ ffi.cdef([[
 
 local kernel32 = ffi.load("kernel32")
 
----@class env.raw.windows
+---@class env.raw.windows: env.raw
+---@field var fun(name: string): string?
+---@field set fun(name: string, value: string?): boolean
+---@field tmpdir fun(): string
+---@field cwd fun(): string?
+---@field chdir fun(dir: string): boolean
+---@field execPath fun(): string?
 local env = {}
 
 ---@param name string
@@ -67,6 +73,7 @@ function env.cwd()
 	return ffi.string(buf, len)
 end
 
+---@param dir string
 function env.chdir(dir) ---@return boolean
 	return kernel32.SetCurrentDirectoryA(dir) ~= 0
 end
