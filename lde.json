@@ -2,8 +2,20 @@
 	"name": "env",
 	"description": "A cross platform env library for lde",
 	"authors": ["David Cruz <david@bycruz.dev"],
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"dependencies": {
 		"path": { "version": "0.1.0" }
+	},
+	"features": {
+		"windows": ["env.raw.windows"],
+		"linux": ["env.raw.posix", "env.raw.linux"],
+		"macos": ["env.raw.posix", "env.raw.macos"],
+		"bsd": ["env.raw.posix", "env.raw.bsd"],
+		"unix": ["env.raw.posix"]
+	},
+	"devDependencies": {
+		"lde-test": {
+			"git": "https://github.com/lde-org/lde"
+		}
 	}
 }
